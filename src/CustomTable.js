@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DragMenu from './Drag';
 import { Table } from 'antd';
 import { tableColumnsBuild } from './func';
-import styles from './customTable.less';
+import './customTable.less';
 
 export default class CustomTable extends React.PureComponent{
   constructor(props) {
@@ -23,7 +23,7 @@ export default class CustomTable extends React.PureComponent{
       tableKeys
     });
 
-    const title = <div className={styles.setting} id="setting">
+    const title = <div className="setting" id="setting">
       <span>{column.length ? column[column.length - 1].title : ''}</span>
       <DragMenu tableName={tableName} tableKeys={tableKeys} onOk={data => this.setState({ reload: Math.random() })} />
     </div>;

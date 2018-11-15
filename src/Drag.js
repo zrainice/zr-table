@@ -12,7 +12,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Popover, Icon } from 'antd';
 import { getTableData } from './func';
-import styles from './drag.less';
+import './drag.less';
 
 export default class DragMenu extends React.Component {
   constructor(props) {
@@ -97,21 +97,21 @@ export default class DragMenu extends React.Component {
     };
     // 表格个性化展示弹出层
     const Title = (
-      <div className={styles.set}>
-        <div className={styles['ctb-flex-row-sa']}>
+      <div className="set">
+        <div className="ctb-flex-row-sa">
           <div>
-            <p className={styles['ctb-title']}>已显示</p>
+            <p className="ctb-title">已显示</p>
             <div onDrop={e => onDrop(e)} onDragOver={e => onDragOver(e, 'true')} >
               {
-                this.state.tableData.map((item, index) => item.show ? <div key={`show${index}`} draggable onDragStart={e => onDragStart(e, item, index)} onDrop={e => onDrop(e)} onDragLeave={e => onDragLeave(e, item)} onDragOver={e => onDragOver(e, index)}><div className={styles.hover}>{item.text}</div></div> : null)
+                this.state.tableData.map((item, index) => item.show ? <div key={`show${index}`} draggable onDragStart={e => onDragStart(e, item, index)} onDrop={e => onDrop(e)} onDragLeave={e => onDragLeave(e, item)} onDragOver={e => onDragOver(e, index)}><div className="hover">{item.text}</div></div> : null)
               }
             </div>
           </div>
           <div>
-            <p className={styles['ctb-title']}>未显示</p>
+            <p className="ctb-title">未显示</p>
             <div onDrop={e => onDrop(e)} onDragOver={e => onDragOver(e, 'false')}>
               {
-                this.state.tableData.map((item, index) => item.show ? null : <div key={`disshow${index}`} draggable onDragStart={e => onDragStart(e, item, index)} onDrop={e => onDrop(e)} onDragLeave={e => onDragLeave(e, item)} onDragOver={e => onDragOver(e, index)}><div className={styles.hover}>{item.text}</div></div>)
+                this.state.tableData.map((item, index) => item.show ? null : <div key={`disshow${index}`} draggable onDragStart={e => onDragStart(e, item, index)} onDrop={e => onDrop(e)} onDragLeave={e => onDragLeave(e, item)} onDragOver={e => onDragOver(e, index)}><div className="hover">{item.text}</div></div>)
               }
             </div>
           </div>
@@ -125,7 +125,7 @@ export default class DragMenu extends React.Component {
     );
     return (
       <Popover title="显示列" visible={visible} content={Title} trigger="click" autoAdjustOverflow placement="bottomRight">
-        <Icon type="setting" className={styles.icon} onClick={() => this.onClickIcon()} />
+        <Icon type="setting" className="icon" onClick={() => this.onClickIcon()} />
       </Popover>
     );
   }
